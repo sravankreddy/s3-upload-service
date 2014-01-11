@@ -1,0 +1,41 @@
+{
+    //pathUploadItems is required, one or more pathUploadItems can be specified
+    "pathUploadItems": [
+        {
+            "localPath": "/usr/local/s3-upload-service",
+            //for windows you must escape backslashes
+            //"localPath": "C:\\services\\s3-upload-service",
+            "globPattern": "*.{jpg,png,gif,ico}",
+            "s3BucketName": "your-unique-bucket-name",
+            "s3ObjectKeyRoot": "/",
+            "metadataHeaders": [
+            	//not all types of headers will be accepted by Amazon S3
+                {
+                    "key": "Cache-Control",
+                    "value": "max-age=86400"
+                }
+            ]
+        }
+    ],
+    
+    //options specified on the command line take precedence over options specified in the configuration file
+
+    //corePoolSize is optional, default value: 1
+    "corePoolSize": 2,
+    
+    //maximumPoolSize is optional, default value: 3
+    "maximumPoolSize": 5,
+
+    //queueCapacity is optional, default value: 3
+    "queueCapacity": 5,
+
+    //connectionTimeout is optional, default value: 50000
+    "connectionTimeout": 30000,
+
+    //socketTimeout is optional, default value: 120000
+    "socketTimeout": 130000,
+
+    //deleteAfterUpload is optional, default value: true
+    "deleteAfterUpload": true    
+
+}
