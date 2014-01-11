@@ -90,23 +90,23 @@ The service is configured using a JSON configuration file and also through the c
 Command Line Usage
 ---------------------
 
-*-cp,--corepoolsize <arg>* - the base number of worker threads to use in uploading files (optional, default: 1)  
+*-cp,--corepoolsize \<arg\>* - the base number of worker threads to use in uploading files (optional, default: 1)  
   
-*-ct,--connectiontimeout <arg>* - the timeout for creating a new connection in milliseconds (optional, default: 50,000)  
+*-ct,--connectiontimeout \<arg\>* - the timeout for creating a new connection in milliseconds (optional, default: 50,000)  
 
 *-d,--daemon* - run this application as a daemon (optional, default: do not run this application as a daemon)  
   
 *-h,--help* - print this help message  
   
-*-mp,--maximumpoolsize <arg>* - the max number of worker threads to use in uploading files (optional, default: 3)  
+*-mp,--maximumpoolsize \<arg\>* - the max number of worker threads to use in uploading files (optional, default: 3)  
   
-*-qc,--queuecapacity <arg>* - the capacity of the queue to use for uploading files (optional, default: 3)  
+*-qc,--queuecapacity \<arg\>* - the capacity of the queue to use for uploading files (optional, default: 3)  
   
-*-st,--sockettimeout <arg>* - the timeout for reading from a connected socket in milliseconds (optional, default: 120,000)
+*-st,--sockettimeout \<arg\>* - the timeout for reading from a connected socket in milliseconds (optional, default: 120,000)
 
 
 example command line usage:  
-'java -jar s3uploadservice.jar -cp 3 -mp 3 -ct 300000 -st 600000 -qc 8'
+```'java -jar s3uploadservice.jar -cp 3 -mp 3 -ct 300000 -st 600000 -qc 8'```
 
 
 
@@ -115,18 +115,19 @@ Getting Started
 
 * You must have an AWS account, and you must sign up for the S3 web service. 
 
-* Enter your AWS credentials in the AwsCredentials.properties file, which must be located in the class path.
+* Enter your AWS credentials in the AwsCredentials.properties file, located in the class path.
 
-* Setup at least one uploadPathItem in the config.json configuration file  
+* Setup at least one uploadPathItem in the config.json configuration file, located in the classpath.  
 
-* Enter your log file path in the log4j.properties file 
+* Enter your log file path in the log4j.properties file, located in the classpath. 
 
 
 
 Building From Source
 ----------------------
 
-Once you check out the code from GitHub, you can build it with Maven using the following: <code>mvn package</code>
+Once you check out the code from GitHub, you can build it with Maven using the following:  
+```mvn package```
 
 The Maven project is configured to not package the dependencies in the jar file, but instead to copy them to a subfolder. The directory structure of the packaged service is as follows:
 
